@@ -8,7 +8,7 @@ const findButton = c => c.find('.todo-item__remove-button');
 
 describe('TODOItem component', () => {
   it('renders without crashing', () => {
-    mount(<TODOItem />);
+    shallow(<TODOItem />);
   });
 
   it('renders text', () => {
