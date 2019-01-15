@@ -18,13 +18,13 @@ describe('TODOItem component', () => {
   });
 
   it('renders checkbox that works', () => {
-    const onToggleCheck = jest.fn();
+    const onCheck = jest.fn();
     const component = mount(
-      <TODOItem text="Hello" onToggleCheck={onToggleCheck} />
+      <TODOItem text="Hello" onCheck={onCheck} />
     );
 
     findCheckbox(component).simulate('change');
-    expect(onToggleCheck).toBeCalledWith(true);
+    expect(onCheck).toBeCalledWith(true);
   });
 
   it('renders remove button that works', () => {

@@ -2,8 +2,8 @@ import React from 'react';
 
 class TODOItem extends React.Component {
   handleToggleCheck = () => {
-    if (this.props.onToggleCheck) {
-      this.props.onToggleCheck(!this.props.checked);
+    if (this.props.onCheck) {
+      this.props.onCheck(!this.props.checked);
     }
   };
 
@@ -21,6 +21,7 @@ class TODOItem extends React.Component {
             type="checkbox"
             checked={this.props.checked}
             onChange={this.handleToggleCheck}
+            className="todo-item__checkbox"
           />
           <span className="todo-item__text">{this.props.text || ''}</span>
         </label>

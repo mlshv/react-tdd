@@ -41,9 +41,9 @@ describe('TODOList component', () => {
     const firstItem = findTodoItem(component).get(0)
 
     firstItem.props.onRemove();
-    firstItem.props.onCheck();
+    firstItem.props.onCheck(true);
 
     expect(onRemove).toBeCalledWith(0);
-    expect(onCheck).toBeCalledWith(0);
+    expect(onCheck).toBeCalledWith(0, true);
   });
 });

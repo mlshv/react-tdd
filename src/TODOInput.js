@@ -21,8 +21,14 @@ class TODOInput extends React.Component {
           type="text"
           onChange={this.handleTextChange}
           value={this.state.text}
+          className="todo-input__input"
         />
-        <button onClick={this.handleSubmit}>Сохранить</button>
+        <button
+          onClick={this.handleSubmit}
+          className="todo-input__submit"
+        >
+          Сохранить
+        </button>
       </div>
     );
   }

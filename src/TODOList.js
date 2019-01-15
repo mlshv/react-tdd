@@ -3,9 +3,9 @@ import './App.css';
 import TODOItem from './TODOItem';
 
 class TODOList extends React.Component {
-  handleCheck = (id) => {
+  handleCheck = (id, value) => {
     if (this.props.onCheck) {
-      this.props.onCheck(id);
+      this.props.onCheck(id, value);
     }
   }
 
@@ -24,7 +24,7 @@ class TODOList extends React.Component {
               key={i}
               text={text}
               checked={checked}
-              onCheck={() => this.handleCheck(i)}
+              onCheck={(value) => this.handleCheck(i, value)}
               onRemove={() => this.handleRemove(i)}
             />
           ))) : null}
