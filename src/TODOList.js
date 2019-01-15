@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import TODOItem from './TODOItem';
 
-class App extends React.Component {
+class TODOList extends React.Component {
   handleCheck = (id) => {
     if (this.props.onCheck) {
       this.props.onCheck(id);
@@ -33,4 +33,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default TODOList;

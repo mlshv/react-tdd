@@ -14,6 +14,8 @@ const todoItems = [
   }
 ];
 
+const findTodoItem = c => c.find(TODOItem);
+
 describe('TODOList component', () => {
   it('renders without crashing', () => {
     shallow(<TODOList />);
@@ -22,7 +24,7 @@ describe('TODOList component', () => {
   it('renders list of TODOs', () => {
     const component = shallow(<TODOList todos={todoItems} />);
 
-    expect(component.find(TODOItem)).toHaveLength(2);
+    expect(findTodoItem(component)).toHaveLength(2);
   });
 
   it('propagates handlers', () => {
@@ -36,9 +38,11 @@ describe('TODOList component', () => {
       />
     );
 
-    component.find(TODOItem).get(0).props.onRemove();
-    component.find(TODOItem).get(0).props.onCheck();
-    
+    const firstItem = findTodoItem(component).get(0)
+
+    firstItem.props.onRemove();
+    firstItem.props.onCheck();
+
     expect(onRemove).toBeCalledWith(0);
     expect(onCheck).toBeCalledWith(0);
   });
