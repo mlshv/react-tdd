@@ -1,33 +1,8 @@
-import puppeteer from 'puppeteer';
+import PageObject from './PageObject'
 
-export default class AppPageObject {
-  async open() {
-    const browser = await puppeteer.launch();
-
-    const page = await browser.newPage();
-
-    page.emulate({
-      viewport: {
-        width: 1400,
-        height: 1000
-      },
-      userAgent: ''
-    });
-
-    await page.goto('http://localhost:3000/');
-    await page.waitForSelector('.todo-app');
-
-    this.browser = browser;
-    this.page = page;
-  }
-
-  async close() {
-    return this.browser.close();
-  }
-
-  async refresh() {
-    return this.page.reload();
-  }
+export default class AppPageObject extends PageObject {
+  url = 'http://localhost:3000/';
+  selector = '.todo-app';
 
   async typeTodo(text) {
     return this.page.type('.todo-input__input', text);
